@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Game Day Squad · Team Sheet Maker</title>
+  <meta name="description" content="Build a soccer team sheet with formation and players, then download or share it as an image. Nothing is stored." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <img id="topLogo" alt="" class="topbar-logo" />
+    <div>
+      <h1>Game Day Squad</h1>
+      <p>Fill in the team, drag players into place, download the image and share it.</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="controls">
+      <!-- GAME DETAILS -->
+      <div class="card">
+        <h2><span class="step">1</span> Game details</h2>
+        <div class="grid2">
+          <label>School / club<input data-field="team" type="text" /></label>
+          <label>Team / category<input data-field="category" type="text" placeholder="e.g. U12 Boys" /></label>
+          <label>Opponent<input data-field="opponent" type="text" placeholder="e.g. St Mary's" /></label>
+          <label>Home / Away
+            <select data-field="homeAway">
+              <option value="">—</option>
+              <option value="HOME">Home</option>
+              <option value="AWAY">Away</option>
+            </select>
+          </label>
+          <label>Date<input data-field="date" type="date" /></label>
+          <label>Kick-off<input data-field="kickoff" type="time" /></label>
+          <label>Meet time<input data-field="meet" type="time" /></label>
+          <label>Venue<input data-field="venue" type="text" placeholder="e.g. Main Oval" /></label>
+        </div>
+      </div>
+
+      <!-- FORMATION -->
+      <div class="card">
+        <h2><span class="step">2</span> Formation <span class="muted">· 11-a-side</span></h2>
+        <div class="row">
+          <label class="grow">Shape<select id="formation"></select></label>
+          <button type="button" class="btn ghost" id="resetPositions">Reset positions</button>
+        </div>
+        <p class="hint">Tip: drag the shirts on the preview to move players.</p>
+      </div>
+
+      <!-- PLAYERS -->
+      <div class="card">
+        <h2><span class="step">3</span> Players</h2>
+        <details class="paste">
+          <summary>Paste a list of names</summary>
+          <textarea id="pasteBox" rows="4" placeholder="One per line or separated by commas.&#10;Goalkeeper first, then defenders → attackers.&#10;Extra names become substitutes."></textarea>
+          <button type="button" class="btn" id="fillBtn">Fill team</button>
+        </details>
+        <div id="starters" class="starters"></div>
+        <label>Substitutes <span class="muted">(one per line)</span>
+          <textarea data-field="subs" rows="4"></textarea>
+        </label>
+      </div>
+
+      <!-- EXTRAS -->
+      <div class="card">
+        <h2><span class="step">4</span> Notes</h2>
+        <label>Message for players &amp; parents
+          <textarea data-field="notes" rows="3" placeholder="e.g. Full school kit, bring water and shin pads."></textarea>
+        </label>
+        <label>Coach<input data-field="coach" type="text" placeholder="Coach's name" /></label>
+      </div>
+
+      <!-- LOOK -->
+      <div class="card">
+        <h2><span class="step">5</span> Look</h2>
+        <div class="row wrap">
+          <label class="file-btn btn ghost">Upload logo<input type="file" id="logoInput" accept="image/*" hidden /></label>
+          <button type="button" class="btn ghost" id="resetLogo">Default logo</button>
+          <label class="check"><input type="checkbox" id="showLogo" checked /> Show logo</label>
+        </div>
+        <div class="colors">
+          <label><input type="color" data-color="primary" /> Header</label>
+          <label><input type="color" data-color="accent" /> Accent</label>
+          <label><input type="color" data-color="shirt" /> Shirts</label>
+          <label><input type="color" data-color="shirtText" /> Shirt text</label>
+          <label><input type="color" data-color="gk" /> Goalkeeper</label>
+        </div>
+        <button type="button" class="btn ghost" id="resetColors">Reset colours</button>
+      </div>
+    </section>
+
+    <section class="preview">
+      <div class="preview-inner">
+        <h2>Preview</h2>
+        <div class="segmented small" role="group" aria-label="Image shape">
+          <button type="button" data-layout="portrait">Portrait · phones</button>
+          <button type="button" data-layout="landscape">Landscape · email</button>
+        </div>
+        <canvas id="sheet" aria-label="Team sheet preview"></canvas>
+        <div class="actions">
+          <button type="button" class="btn primary" id="downloadBtn">Download image</button>
+          <button type="button" class="btn primary" id="shareBtn" hidden>Share…</button>
+          <button type="button" class="btn ghost" id="clearBtn">Clear all</button>
+        </div>
+        <p class="hint center">Drag the shirts to move players.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">Nothing is saved. Refresh the page to start over.</footer>
+
+  <script src="assets/logo-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
