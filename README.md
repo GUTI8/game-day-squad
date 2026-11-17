@@ -24,7 +24,7 @@ A friend coaches several school teams with games every Saturday. Each week he ha
 ## Tech & decisions
 
 - **Plain HTML, CSS and JavaScript.** No framework and no build step. The app is small, so a framework would add weight without benefit.
-- **No backend, by design.** Everything runs in the browser and nothing is saved. The players are children, so keeping their names off any server was a priority.
+- **No backend, by design.** Everything runs in the browser and nothing is saved. 
 - **Canvas 2D rendering.** The preview and the exported image are drawn by the same code, so what you see is exactly what you share.
 - **No third-party requests.** The font and logo are bundled with the app, so it works offline and sends nothing to outside services.
 
