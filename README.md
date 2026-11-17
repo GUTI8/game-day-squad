@@ -2,7 +2,7 @@
 
 A web app for school soccer coaches. Enter the game details and players, set the formation, and download a team sheet image ready to share with parents and staff.
 
-**[Live demo →](https://your-demo-link-here)**
+**[Live demo →](https://game-day-squad.gutierrezjuanni.workers.dev)**
 
 ![Game Day Squad screenshot](screenshot.png)
 <!-- Tip: replace with a short GIF of dragging players and downloading the image -->
