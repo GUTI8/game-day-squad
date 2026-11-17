@@ -1,6 +1,8 @@
 {
   // Cloudflare Workers settings: serve the static site in ./public
   "name": "game-day-squad",
+  "workers_dev": true,
+  "preview_urls": true,
   "compatibility_date": "2026-11-01",
   "assets": {
     "directory": "./public"
