@@ -32,10 +32,6 @@ A friend coaches several school teams with games every Saturday. Each week he ha
 
 Hosted on Cloudflare Pages and deployed automatically from GitHub on every push. Access to the coach's copy is restricted with Cloudflare Access (one-time email codes).
 
-## What I learned / next steps
-
-- <!-- e.g. drawing and hit-testing on canvas, handling touch vs scroll on mobile, setting up Cloudflare Access -->
-- <!-- e.g. next: save favourite line-ups on the device, printable A4 version -->
 
 ## Credits
 
